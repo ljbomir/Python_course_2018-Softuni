@@ -5,24 +5,26 @@ data = input()
 
 
 while data != "filter base":
-    mdata = data.split(' -> ')
-    param = mdata[1]
-    emp = mdata[0]
+    param = data.split(" -> ")[1]
+    emp = data.split(" -> ")[0]
 
-    if isinstance(param, int):
-        age[emp] = param
-    elif isinstance(param, float):
-        salary[emp] = param
-    elif isinstance(param, str):
-        position[emp] = param
+    try:
+        if float(param) % 1 == 0:
+            age[emp] = param
+        else:
+            param = float(param)
+            salary[emp] = param
+    except:
+            position[emp] = param
+
 
     data = input()
 
 data = input()
 sep = "=" * 20
 if data == "Age":
-    [print(f"Name: {key}\nSalary: {value}\n{sep}") for key,value in age.items()]
+    [print(f"Name: {key}\nAge: {value}\n{sep}") for key, value in age.items()]
 elif data == "Salary":
-    [print(f"Name: {key}\nSalary: {value}\n{sep}") for key, value in salary.items()]
+    [print(f"Name: {key}\nSalary: {float(value)}\n{sep}") for key, value in salary.items()]
 elif data == "Position":
-    [print(f"Name: {key}\nSalary: {value}\n{sep}") for key, value in position.items()]
+    [print(f"Name: {key}\nPosition: {value}\n{sep}") for key, value in position.items()]
