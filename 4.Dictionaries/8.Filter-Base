@@ -21,8 +21,6 @@ while data != "filter base":
 data = input()
 sep = "=" * 20
 if data == "Age":
-    #for key,value in age.items():
-    #    print(f"{key}: {value}")
     [print(f"Name: {key}\nSalary: {value}\n{sep}") for key,value in age.items()]
 elif data == "Salary":
     [print(f"Name: {key}\nSalary: {value}\n{sep}") for key, value in salary.items()]
